@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> KNIGHTFURY CELL </title>
+    <style>
+
+        table, tr, td, th {
+            border : 2px solid #dff9fb ;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #aaa69d;
+            padding: 10px;
+        }
+        td {
+            background-color: #dfe4ea;
+            padding: 10px;
+        } 
+        body {
+            background-color: #dff9fb;
+            padding-left: 75px;
+        }
+        .right {
+            text-align: right
+        }
+        .center {
+            text-align: center
+        }
+        .tambah {
+            background-color: #dfe4ea;
+            transition-duration: 0.3s
+        }
+        .tambah:hover {
+            background-color: #3c6382;
+            color: white;
+        }
+        .cari {
+            background-color: #000aca;
+            color: white;
+            transition-duration: 0.3s
+        }
+        .cari:hover {
+            background-color: #9603e6;
+            color: white
+        }
+        .sort {
+            border-radius: 5px;
+            border: 1px solid #70a1ff
+        }
+        .sort:hover {
+            background-color: #70a1ff;
+            color: white;
+            border: 1px solid #70a1ff;
+            box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.19)
+        }
+        .disabled {
+            cursor: not-allowed
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1> Tambah Produk </h1>
+        <form id="produkbaru">
+            <input type="text" id="nama" placeholder="nama produk">
+            <input type="text" id="gambar" placeholder="gambar">
+            <input type="number" id="harga" placeholder="harga">
+            <input type="number" id="stok" placeholder="stok">
+            <button onclick="buttontambah()" class="tambah"> Tambahkan </button>
+        </form>
+
+    <h2> Cari </h2>
+        <input type="text" id="cariproduk">
+        <button onclick="buttoncari()" class="cari"> GO </button>
+
+    <h2> Sort by </h2>
+        Nama :
+        <select id="sortnama">
+            <option value="1"> a-z </option>
+            <option value="2"> z-a </option>
+        </select>
+        <button onclick="buttonsortnama()" class="sort"> GO </button>
+
+        <br><br>
+
+        Harga :
+        <select id="sortharga">
+            <option value="1"> a-z </option>
+            <option value="2"> z-a </option>
+        </select>
+        <button onclick="buttonsortharga()" class="sort"> GO </button>
+
+    <h1>Daftar Produk</h1>
+        <table id="daftarproduk">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Gambar</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyproduk"></tbody>
+        </table>
+    
+    <h1>User Cart</h1>
+        <table id="usercart">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Gambar</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    <br> <button onclick="buttoncetak()" disabled id="cetak" class="disabled"> Cetak </button>
+    
+    <br>  <p id="receipt"> Detail Belanja : </p>
+   
+    <br>
+    <input type="number" id="uang" placeholder="masukkan uang" hidden>
+    <button onclick="buttonbeli()" id="beli" hidden> Beli </button>
+</body>
+
+<script src="/Market HP/MarketHPdatabase.js"></script>
+<script src="/Market HP/MarketHPdaftarproduk.js"></script>
+<script src="/Market HP/MarketHPusercart.js"></script>
+<script src="/Market HP/MarketHPtransaksi.js"></script>
+
+</html>
